@@ -1,0 +1,5 @@
+Installation sur centos : 
+1 - sudo yum update
+2 - sudo yum install -y epel-release 
+3 - sudo yum install -y ansible
+3 - ansible --version
