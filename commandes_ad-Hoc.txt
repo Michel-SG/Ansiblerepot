@@ -1,0 +1,16 @@
+1 - Créer une machine ansible et deux machines clientes
+2 - Inscrire les inventaires des machines clientes dans un fichier "hosts" à lintérieur de la vm ansible
+3 - voici le contenu du fichier "hosts" dans la vm ansible:
+    10.0.0.4 ansible_user=admin ansible_password=admin ansible_ssh_common_args="-o StrictHostKeyChecking=no"
+    10.0.0.5 ansible_user=admin ansible_password=admin ansible_ssh_common_args="-o StrictHostKeyChecking=no"
+
+4 - Intérroger les deux machines clientes via la commande :
+    ansible -i hosts all -m ping
+
+5 - Ecrire depuis la machine ansible un texte dans un fichier toto.txt dans les machines clientes via la commande :
+    ansible -i hosts all -m copy -a "dest=/home/admin/toto.txt content='hello world'"
+
+6 - Aller dans la machine cliente vérifier si le fichier toto.txt est bien présent avec son contenu
+
+7 - Pour voir plus d'informations sur toute les infrastructures, utiliser le module "setup" via la commande :
+    ansible -i hosts all -m setup
